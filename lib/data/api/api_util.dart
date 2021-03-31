@@ -29,9 +29,13 @@ class ApiUtil {
   }
 
   Future<ArticleResponseModel> search({@required String value}) async {
+    try{
     final body = SearchBody(value: value);
     final result = await _newsService.search(body);
     return ArticleResponseModelMapper.fromApi(result);
+    }catch(error){
+      rethrow;
+    }
   }
 
   Future<ArticleResponseModel> getHotNews() async {

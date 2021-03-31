@@ -24,7 +24,9 @@ class NewsService {
       if (response.statusCode == 200) {
         return ApiSourceResposeModel.fromJson(response.data);
       }
-    } catch (error) {}
+    } catch (error) {
+      rethrow;
+    }
   }
 
   Future<ApiArticleResponseModel> getTopHeadLines(
@@ -35,7 +37,9 @@ class NewsService {
       if (response.statusCode == 200) {
         return ApiArticleResponseModel.fromJson(response.data);
       }
-    } catch (error) {}
+    } catch (error) {
+      rethrow;
+    }
   }
 
   Future<ApiArticleResponseModel> search(SearchBody body) async {
@@ -45,7 +49,9 @@ class NewsService {
       if (response.statusCode == 200) {
         return ApiArticleResponseModel.fromJson(response.data);
       }
-    } catch (error) {}
+    } catch (error) {
+      rethrow;
+    }
   }
 
   Future<ApiArticleResponseModel> getHotNews(GetHotNewsBody body) async {
@@ -55,7 +61,9 @@ class NewsService {
       if (response.statusCode == 200) {
         return ApiArticleResponseModel.fromJson(response.data);
       }
-    } catch (error) {}
+    } catch (error) {
+      rethrow;
+    }
   }
 
   Future<ApiArticleResponseModel> getSourceNews(GetSourceNewsBody body) async {
@@ -65,6 +73,8 @@ class NewsService {
       if (response.statusCode == 200) {
         return ApiArticleResponseModel.fromJson(response.data);
       }
-    } catch (error) {}
+    } catch (error) {
+      rethrow;
+    }
   }
 }

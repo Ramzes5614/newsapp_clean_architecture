@@ -3,7 +3,8 @@ import 'package:news_cleaan_arch_bloc/data/mapper/to_source.dart';
 import 'package:news_cleaan_arch_bloc/domain/model/article.dart';
 
 class ArticleMapper {
-  static fromApi(ApiArticleModel apiArticleModel) {
+  //у тебя этот метод должен возвращать не dynamic
+  static ArticleModel fromApi(ApiArticleModel apiArticleModel) {
     if (apiArticleModel.hasError == true) return null;
     return ArticleModel(
         source: SourceMapper.fromApi(apiArticleModel.source),

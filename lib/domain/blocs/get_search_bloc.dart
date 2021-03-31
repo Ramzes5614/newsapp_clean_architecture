@@ -14,9 +14,16 @@ class GetSearchBloc {
   ArticleResponseModel get defaultitem => SearchModelInitState();
   BehaviorSubject<ArticleResponseModel> get subject => _subject;
 
-  void LoadSearchModel(String value) async {
+  //Названия методов ВСЕГДА с маленькой буквы
+  //LoadSearchModel было
+  void loadSearchModel(String value) async {
     _subject.sink.add(SearchModelLoadingState());
-    var search_model = await _newsRepository.search(value: value);
+    var search_model;
+    try {
+      search_model = await _newsRepository.search(value: value);
+    } catch (errorr) {
+      _subject.sink.add(SearchModelErrorState(error: errorr.toString()));
+    }
     if (search_model != null) {
       _subject.sink.add(SearchModelOKState(model: search_model));
     } else {

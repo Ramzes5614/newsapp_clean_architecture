@@ -31,6 +31,10 @@ class NewsDataRepository extends NewsRepository {
 
   @override
   Future<ArticleResponseModel> search({String value}) {
+    try{
     return _apiUtil.search(value: value);
+    }catch(error){
+      rethrow;
+    }
   }
 }
